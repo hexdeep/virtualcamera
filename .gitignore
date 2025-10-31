@@ -1,9 +1,14 @@
+# 忽略所有文件
 *
-!lib
+
+# 保留 lib 文件夹及其所有内容
+!lib/
 !lib/**
 
+# 保留 pubspec.yaml
 !pubspec.yaml
 
+# 保留 AndroidManifest.xml
 !android/
 !android/app/
 !android/app/src/

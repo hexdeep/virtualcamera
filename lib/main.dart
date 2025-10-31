@@ -211,7 +211,7 @@ class _WebRTCDemoPageState extends State<WebRTCDemoPage>  with WidgetsBindingObs
     }
   }
 
-  // ---------- 视频 WebRTC ----------
+  // ---------- 视频 WebRTC  ----------
   Future<void> _startCameraWebRTC() async {
     final cameraGranted = await Permission.camera.request();
     if (!cameraGranted.isGranted) {
