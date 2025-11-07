@@ -238,6 +238,8 @@ class _WebRTCDemoPageState extends State<WebRTCDemoPage>  with WidgetsBindingObs
     await _saveServerIp(serverIp);
     setState(() => _cameraStatus = "连接中...");
 
+    await _setStreamType();
+
     await _getCameraStream();
 
     await _getAudioStream();
@@ -316,6 +318,13 @@ class _WebRTCDemoPageState extends State<WebRTCDemoPage>  with WidgetsBindingObs
       _cameraStatus = "视频已断开";
       _cameraConnected = false;
     });
+  }
+
+  Future<void> _setStreamType() async {
+    final serverIp = _serverIpController.text.trim();
+    try {
+      await http.get(Uri.parse("http://$serverIp/and_api/set_stream?stream_type=1"));
+    } catch (_) {setState(() => _cameraStatus = "设置推流类型为webrtc失败");}
   }
 
   Future<void> _switchCamera() async {
